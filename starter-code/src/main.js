@@ -40,12 +40,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.querySelector('#memory_board').innerHTML = html;
 
   // Bind the click event of each element to a function
-  document.querySelectorAll('.back').forEach(function(card) {
-    card.onclick = function() {
-      // TODO: write some code here
-      console.log('Card clicked')
+  function flipCard(e){
+    e.currentTarget.className = 'front';
+    e.currentTarget.nextElementSibling.className = 'back';
+    console.log('Card clicked')     
     }
-  });
+  
+  document.querySelectorAll('.back').forEach(function(card) {
+  card.onclick = flipCard;
+  }
+); 
 });
 
 
+function updateScore (){
+  let pairsClicked_span = document.getElementById('pairs_clicked');
+  let pairsGuessed_span = document.getElementById('pairs_guessed');
+}
+
+
+ 
